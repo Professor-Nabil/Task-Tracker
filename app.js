@@ -79,10 +79,26 @@ export class Task {
   }
 
   static mark(id, status) {
-    Task.#Tasks.filter((e) => {
-      if (e.id === id) {
-        e.status = status;
+    try {
+      const findTask = Task.#Tasks.findIndex((e) => e.id === id);
+      if (findTask < 0) {
+        throw new Error(`Error: Task not found with (ID: ${id})`);
       }
-    });
+      if (status !== "done" && status !== "in-progress" && status !== "todo") {
+        throw new Error(
+          `Error: Task status must be ("done" or "in-progress" or "todo")`,
+        );
+      }
+      Task.#Tasks.filter((e) => {
+        if (e.id === id) {
+          e.status = status;
+          console.log(
+            `Task status changed successfully (ID: ${id}) (status: ${status})`,
+          );
+        }
+      });
+    } catch (err) {
+      console.error(err.message);
+    }
   }
 }
