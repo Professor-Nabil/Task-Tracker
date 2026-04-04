@@ -34,6 +34,11 @@ class Task {
     console.log(taskDone);
   }
 
+  static get listNotDone() {
+    const taskDone = Task.#Tasks.filter((e) => e.status !== "done");
+    console.log(taskDone);
+  }
+
   static update(id, description) {
     let taskIndex = Task.#Tasks.findIndex((e) => e.id === id);
     Task.#Tasks[taskIndex].description = description;
