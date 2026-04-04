@@ -26,26 +26,57 @@ export class Task {
   }
 
   static get list() {
-    console.log(Task.#Tasks);
+    try {
+      if (Task.#Tasks.length <= 0) {
+        throw new Error("Error: List is empty");
+      }
+      console.log(Task.#Tasks);
+    } catch (err) {
+      console.error(err.message);
+    }
   }
 
   static get listDone() {
-    const taskDone = Task.#Tasks.filter((e) => e.status === "done");
-    console.log(taskDone);
+    try {
+      if (Task.#Tasks.length <= 0) {
+        throw new Error("Error: List is empty");
+      }
+      const taskDone = Task.#Tasks.filter((e) => e.status === "done");
+      console.log(taskDone);
+    } catch (err) {
+      console.error(err.message);
+    }
   }
 
   static get listNotDone() {
-    const taskDone = Task.#Tasks.filter((e) => e.status !== "done");
-    console.log(taskDone);
+    try {
+      if (Task.#Tasks.length <= 0) {
+        throw new Error("Error: List is empty");
+      }
+      const taskDone = Task.#Tasks.filter((e) => e.status !== "done");
+      console.log(taskDone);
+    } catch (err) {
+      console.error(err.message);
+    }
   }
 
   static get listInProgress() {
-    const taskDone = Task.#Tasks.filter((e) => e.status === "in-progress");
-    console.log(taskDone);
+    try {
+      if (Task.#Tasks.length <= 0) {
+        throw new Error("Error: List is empty");
+      }
+      const taskDone = Task.#Tasks.filter((e) => e.status === "in-progress");
+      console.log(taskDone);
+    } catch (err) {
+      console.error(err.message);
+    }
   }
 
   static update(id, description) {
     try {
+      if (Task.#Tasks.length <= 0) {
+        throw new Error("Error: List is empty");
+      }
       const findTask = Task.#Tasks.findIndex((e) => e.id === id);
       if (findTask < 0) {
         throw new Error(`Error: Task not found with (ID: ${id})`);
@@ -67,6 +98,9 @@ export class Task {
 
   static delete(id) {
     try {
+      if (Task.#Tasks.length <= 0) {
+        throw new Error("Error: List is empty");
+      }
       const findTask = Task.#Tasks.findIndex((e) => e.id === id);
       if (findTask < 0) {
         throw new Error(`Error: Task not found with (ID: ${id})`);
@@ -80,6 +114,9 @@ export class Task {
 
   static mark(id, status) {
     try {
+      if (Task.#Tasks.length <= 0) {
+        throw new Error("Error: List is empty");
+      }
       const findTask = Task.#Tasks.findIndex((e) => e.id === id);
       if (findTask < 0) {
         throw new Error(`Error: Task not found with (ID: ${id})`);

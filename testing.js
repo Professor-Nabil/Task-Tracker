@@ -4,7 +4,7 @@ import { Task } from "./app.js";
 /* TEST: *** Add Tasks *** */
 
 // BUG: If task description empty
-new Task(); // Just make Description = 'Empty Task'
+// new Task(); // Just make Description = 'Empty Task'
 
 new Task("Learn JavaScript");
 new Task("Make some friends");
@@ -43,6 +43,8 @@ Task.mark(1, "todo"); // Task status changed successfully (ID: 1) (status: todo)
 
 // ===============================================================================
 /* TEST: *** List all tasks *** */
+
+// BUG: If list is empty --> Error: List is empty
 
 Task.list;
 
