@@ -31,6 +31,11 @@ class Task {
     Task.#Tasks[taskIndex].description = description;
     console.log(`Task updated successfully (ID: ${id})`);
   }
+
+  static delete(id) {
+    Task.#Tasks = Task.#Tasks.filter((e) => e.id !== id);
+    console.log(`Task deleted successfully (ID: ${id})`);
+  }
 }
 
 new Task("task 1");
