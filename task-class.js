@@ -1,3 +1,4 @@
+import db from "./db.js";
 export class Task {
   #id;
   #description;
@@ -6,27 +7,56 @@ export class Task {
   #updatedAt;
 
   static #Tasks = [];
-  static #autoIncrement = 0;
 
   constructor(description = "Empty Task") {
-    Task.#autoIncrement++;
-    this.#id = Task.#autoIncrement;
-    this.#description = description;
-    this.#status = "todo";
-    this.#createdAt = new Date();
-    this.#updatedAt = new Date();
-    console.log(`Task added successfully (ID: ${this.#id})`);
-    Task.#Tasks.push({
-      id: this.#id,
-      description: this.#description,
-      status: this.#status,
-      createdAt: this.#createdAt,
-      updatedAt: this.#updatedAt,
-    });
+    (async () => {
+      this.#id = await Task.autoIncrement();
+      this.#description = description;
+      this.#status = "todo";
+      this.#createdAt = new Date();
+      this.#updatedAt = new Date();
+
+      console.log(`Task added successfully (ID: ${this.#id})`);
+
+      const obj = {
+        id: this.#id,
+        description: this.#description,
+        status: this.#status,
+        createdAt: this.#createdAt,
+        updatedAt: this.#updatedAt,
+      };
+
+      await Task.add(obj);
+    })();
   }
 
-  static get list() {
+  static async autoIncrement() {
     try {
+      Task.#Tasks = await db.read();
+      let id = 1;
+      Task.#Tasks.forEach((e) => {
+        if (id <= e.id) {
+          id = e.id + 1;
+        }
+      });
+      return id;
+    } catch (err) {
+      console.error(err);
+    }
+  }
+  static async add(obj) {
+    try {
+      Task.#Tasks = await db.read();
+      Task.#Tasks.push(obj);
+      await db.write(Task.#Tasks);
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
+  static async list() {
+    try {
+      Task.#Tasks = await db.read();
       if (Task.#Tasks.length <= 0) {
         throw new Error("Error: List is empty");
       }

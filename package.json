@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node app.js",
     "watch": "nodemon --watch app.js --exec 'clear; node app.js'",
-    "test": "nodemon --watch testing.js --exec 'clear; node testing.js'"
+    "test": "nodemon --watch testing.js --exec 'clear; node testing.js'",
+    "test-user-inputs-add-command": "nodemon --watch app.js --exec 'clear; ./test-user-inputs/add-command.sh'"
   },
   "repository": {
     "type": "git",
