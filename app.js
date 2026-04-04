@@ -8,7 +8,7 @@ export class Task {
   static #Tasks = [];
   static #autoIncrement = 0;
 
-  constructor(description) {
+  constructor(description = "Empty Task") {
     Task.#autoIncrement++;
     this.#id = Task.#autoIncrement;
     this.#description = description;
