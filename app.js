@@ -15,7 +15,7 @@ class Task {
     this.#status = "todo";
     this.#createdAt = new Date();
     this.#updatedAt = new Date();
-    console.log(`Task added successfully (ID: ${this.id})`);
+    console.log(`Task added successfully (ID: ${this.#id})`);
     Task.#Tasks.push({
       id: this.#id,
       description: this.#description,
