@@ -1,0 +1,19 @@
+{
+  "name": "task-tracker",
+  "version": "1.0.0",
+  "description": "Build a CLI app to track your tasks and manage your to-do list.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js",
+    "watch": "nodemon --watch app.js --exec 'clear; node app.js'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github-tester:Professor-Nabil/Task-Tracker.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module"
+}
