@@ -45,13 +45,24 @@ export class Task {
   }
 
   static update(id, description) {
-    Task.#Tasks.filter((e) => {
-      if (e.id === id) {
-        e.description = description;
-        e.updatedAt = new Date();
-        console.log(`Task updated successfully (ID: ${id})`);
+    try {
+      const findTask = Task.#Tasks.findIndex((e) => e.id === id);
+      if (findTask < 0) {
+        throw new Error(`Error: Task not found with (ID: ${id})`);
       }
-    });
+      if (!description) {
+        throw new Error(`Error: Description is empty (ID: ${id})`);
+      }
+      Task.#Tasks.filter((e) => {
+        if (e.id === id) {
+          e.description = description;
+          e.updatedAt = new Date();
+          console.log(`Task updated successfully (ID: ${id})`);
+        }
+      });
+    } catch (err) {
+      console.error(err.message);
+    }
   }
 
   static delete(id) {
