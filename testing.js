@@ -1,10 +1,10 @@
-import { Task } from "./app.js";
+import { Task } from "./task-class.js";
 
 // ===============================================================================
 /* TEST: *** Add Tasks *** */
 
 // BUG: If task description empty
-// new Task(); // Just make Description = 'Empty Task'
+new Task(); // Just make Description = 'Empty Task'
 
 new Task("Learn JavaScript");
 new Task("Make some friends");
@@ -53,18 +53,18 @@ Task.list;
 
 // BUG: If no "task done" found --> No "task done" found
 
-// Task.listDone;
+Task.listDone;
 
 // ===============================================================================
 /* TEST: *** List all tasks that are not done *** */
 
 // BUG: If no "finish task" found --> No "finish task" found
 
-// Task.listNotDone;
+Task.listNotDone;
 
 // ===============================================================================
 /* TEST: *** List all tasks that are in progress *** */
 
 // BUG: In no "task in progress" fondd --> No "task in progress" found
 
-// Task.listInProgress;
+Task.listInProgress;
