@@ -26,7 +26,13 @@ class Task {
   }
 
 
+  static update(id, description) {
+    let taskIndex = Task.#Tasks.findIndex((e) => e.id === id);
+    Task.#Tasks[taskIndex].description = description;
+    console.log(`Task updated successfully (ID: ${id})`);
+  }
 }
 
 new Task("task 1");
 new Task("task 2");
+Task.update(2, "this is new description");
