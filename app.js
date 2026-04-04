@@ -36,6 +36,14 @@ class Task {
     Task.#Tasks = Task.#Tasks.filter((e) => e.id !== id);
     console.log(`Task deleted successfully (ID: ${id})`);
   }
+
+  static mark(id, status) {
+    Task.#Tasks.filter((e) => {
+      if (e.id === id) {
+        e.status = status;
+      }
+    });
+  }
 }
 
 new Task("task 1");
