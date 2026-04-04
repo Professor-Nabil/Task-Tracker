@@ -25,6 +25,9 @@ class Task {
     });
   }
 
+  static get list() {
+    console.log(Task.#Tasks);
+  }
 
   static update(id, description) {
     let taskIndex = Task.#Tasks.findIndex((e) => e.id === id);

@@ -17,7 +17,7 @@
   - [x] Update tasks
   - [x] Delete tasks
   - [x] Mark a task as in progress or done
-  - [ ] List all tasks
+  - [x] List all tasks
   - [ ] List all tasks that are done
   - [ ] List all tasks that are not done
   - [ ] List all tasks that are in progress
@@ -38,4 +38,3 @@
 - Project Initialization
   - GitHub repo
   - Version control system: Git
-
