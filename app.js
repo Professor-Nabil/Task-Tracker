@@ -1,4 +1,4 @@
-class Task {
+export class Task {
   #id;
   #description;
   #status;
@@ -67,7 +67,3 @@ class Task {
     });
   }
 }
-
-new Task("task 1");
-new Task("task 2");
-Task.update(2, "this is new description");
