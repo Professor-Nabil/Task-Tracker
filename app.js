@@ -45,9 +45,13 @@ class Task {
   }
 
   static update(id, description) {
-    let taskIndex = Task.#Tasks.findIndex((e) => e.id === id);
-    Task.#Tasks[taskIndex].description = description;
-    console.log(`Task updated successfully (ID: ${id})`);
+    Task.#Tasks.filter((e) => {
+      if (e.id === id) {
+        e.description = description;
+        e.updatedAt = new Date();
+        console.log(`Task updated successfully (ID: ${id})`);
+      }
+    });
   }
 
   static delete(id) {
