@@ -20,7 +20,7 @@
   - [x] List all tasks
   - [x] List all tasks that are done
   - [x] List all tasks that are not done
-  - [ ] List all tasks that are in progress
+  - [x] List all tasks that are in progress
 
 - Task Properties
   - [ ] `id`: A unique identifier for the task
