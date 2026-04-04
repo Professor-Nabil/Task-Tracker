@@ -58,7 +58,11 @@ export class Task {
         throw new Error("Error: List is empty");
       }
       const taskDone = Task.#Tasks.filter((e) => e.status !== "done");
-      console.log(taskDone);
+      if (taskDone.length <= 0) {
+        console.log(`No "finish task" found`);
+      } else {
+        console.log(taskDone);
+      }
     } catch (err) {
       console.error(err.message);
     }
