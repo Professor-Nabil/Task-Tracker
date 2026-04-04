@@ -66,8 +66,16 @@ export class Task {
   }
 
   static delete(id) {
-    Task.#Tasks = Task.#Tasks.filter((e) => e.id !== id);
-    console.log(`Task deleted successfully (ID: ${id})`);
+    try {
+      const findTask = Task.#Tasks.findIndex((e) => e.id === id);
+      if (findTask < 0) {
+        throw new Error(`Error: Task not found with (ID: ${id})`);
+      }
+      Task.#Tasks = Task.#Tasks.filter((e) => e.id !== id);
+      console.log(`Task deleted successfully (ID: ${id})`);
+    } catch (err) {
+      console.error(err.message);
+    }
   }
 
   static mark(id, status) {

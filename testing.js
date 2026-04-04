@@ -12,11 +12,18 @@ new Task("Take a nap");
 /* TEST: *** Update tasks *** */
 
 // If id not found
-Task.update(10, "Build CLI tool"); // Error: Task not found with (ID: 10)
+Task.update(1000, "Build CLI tool"); // Error: Task not found with (ID: 10)
 // If description empty
 Task.update(1); // Error: Description is empty (ID: 1)
 
 Task.update(1, "Build CLI tool");
+
+/* TEST: *** Delete tasks *** */
+
+// If id not found
+Task.delete(1000);
+
+Task.delete(2);
 
 /* TEST: *** List all tasks *** */
 
