@@ -22,6 +22,7 @@ switch (firstArg) {
   case "list":
     switch (secondArg) {
       case "done":
+        Task.listDone();
         break;
       case "not-done":
         break;
