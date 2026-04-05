@@ -38,3 +38,5 @@
 - Project Initialization
   - GitHub repo
   - Version control system: Git
+
+1. Add a README file with instructions to run the project and the [task-tracker](https://roadmap.sh/projects/task-tracker)
