@@ -1,6 +1,8 @@
 #!/usr/bin/env node
 
 import { Task } from "./task-class.js";
+import { help } from "./help.js";
+
 const args = process.argv.slice(2);
 const firstArg = args[0];
 const secondArg = args[1];
@@ -34,10 +36,12 @@ switch (firstArg) {
         if (thirdArg == null) {
           Task.list();
         } else {
+          help();
         }
         break;
     }
     break;
   default:
+    help();
     break;
 }

@@ -1,0 +1,22 @@
+export const help = () => {
+  console.log(``);
+  console.log("============================================");
+  console.log("=========== Welcome to help page ===========");
+  console.log("============================================");
+  console.log(`list`);
+  console.log(`list done`);
+  console.log(`list not-done`);
+  console.log(`list in-progress`);
+  console.log("============================================");
+  console.log(`add "My task description"`);
+  console.log(`update 1 "My task description"`);
+  console.log(`delete 1`);
+  console.log("============================================");
+  console.log(`mark 1 done`);
+  console.log(`mark 1 in-progress`);
+  console.log(`mark 1 not-done`);
+  console.log("============================================");
+  console.log(`"NOTE: 1 mean Task ID.`);
+  console.log("============================================");
+  console.log(``);
+};
