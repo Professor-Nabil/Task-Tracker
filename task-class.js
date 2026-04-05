@@ -98,4 +98,32 @@ export class Task {
     }
   }
 
+  static async mark(id, status) {
+    try {
+      let Tasks = await db.read();
+      if (Tasks.length <= 0) {
+        throw new Error("Error: List is empty");
+      }
+      const findTask = Tasks.findIndex((e) => e.id === id);
+      if (findTask < 0) {
+        throw new Error(`Error: Task not found with (ID: ${id})`);
+      }
+      if (status !== "done" && status !== "in-progress" && status !== "todo") {
+        throw new Error(
+          `Error: Task status must be ("done" or "in-progress" or "todo")`,
+        );
+      }
+      Tasks.filter((e) => {
+        if (e.id === id) {
+          e.status = status;
+          console.log(
+            `Task status changed successfully (ID: ${id}) (status: ${status})`,
+          );
+        }
+      });
+      await db.write(Tasks);
+    } catch (err) {
+      console.error(err.message);
+    }
+  }
 }
