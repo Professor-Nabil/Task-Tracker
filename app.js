@@ -11,6 +11,7 @@ switch (firstArg) {
     new Task(secondArg);
     break;
   case "update":
+    Task.update(+secondArg, thirdArg);
     break;
   case "delete":
     break;
