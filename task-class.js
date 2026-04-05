@@ -80,4 +80,22 @@ export class Task {
     }
   }
 
+  static async delete(id) {
+    try {
+      let Tasks = await db.read();
+      if (Tasks.length <= 0) {
+        throw new Error("Error: List is empty");
+      }
+      const findTask = Tasks.findIndex((e) => e.id === id);
+      if (findTask < 0) {
+        throw new Error(`Error: Task not found with (ID: ${id})`);
+      }
+      Tasks = Tasks.filter((e) => e.id !== id);
+      console.log(`Task deleted successfully (ID: ${id})`);
+      await db.write(Tasks);
+    } catch (err) {
+      console.error(err.message);
+    }
+  }
+
 }

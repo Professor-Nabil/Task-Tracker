@@ -14,6 +14,7 @@ switch (firstArg) {
     Task.update(+secondArg, thirdArg);
     break;
   case "delete":
+    Task.delete(+secondArg);
     break;
   case "mark":
     break;
