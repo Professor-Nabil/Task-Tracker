@@ -7,6 +7,28 @@ export class Task {
   #createdAt;
   #updatedAt;
 
+  constructor(description = "Empty Task") {
+    (async () => {
+      this.#id = await Task.autoIncrement();
+      this.#description = description;
+      this.#status = "todo";
+      this.#createdAt = new Date();
+      this.#updatedAt = new Date();
+
+      console.log(`Task added successfully (ID: ${this.#id})`);
+
+      const obj = {
+        id: this.#id,
+        description: this.#description,
+        status: this.#status,
+        createdAt: this.#createdAt,
+        updatedAt: this.#updatedAt,
+      };
+
+      await Task.add(obj);
+    })();
+  }
+
   static async autoIncrement() {
     try {
       let Tasks = await db.read();
