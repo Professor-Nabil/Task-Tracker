@@ -53,6 +53,17 @@ export class Task {
     }
   }
 
+  static async list() {
+    try {
+      let Tasks = await db.read();
+      if (Tasks.length <= 0) {
+        throw new Error("Error: List is empty");
+      }
+      console.log(Tasks);
+    } catch (err) {
+      console.error(err.message);
+    }
+  }
 
   static async update(id, description) {
     try {

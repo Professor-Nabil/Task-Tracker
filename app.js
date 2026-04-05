@@ -29,6 +29,7 @@ switch (firstArg) {
         break;
       default:
         if (thirdArg == null) {
+          Task.list();
         } else {
         }
         break;
