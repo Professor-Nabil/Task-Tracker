@@ -82,6 +82,23 @@ export class Task {
     }
   }
 
+  static async listNotDone() {
+    try {
+      let Tasks = await db.read();
+      if (Tasks.length <= 0) {
+        throw new Error("Error: List is empty");
+      }
+      const taskDone = Tasks.filter((e) => e.status !== "done");
+      if (taskDone.length <= 0) {
+        console.log(`No "finish task" found`);
+      } else {
+        console.log(taskDone);
+      }
+    } catch (err) {
+      console.error(err.message);
+    }
+  }
+
   static async update(id, description) {
     try {
       let Tasks = await db.read();

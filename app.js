@@ -25,6 +25,7 @@ switch (firstArg) {
         Task.listDone();
         break;
       case "not-done":
+        Task.listNotDone();
         break;
       case "in-progress":
         break;
