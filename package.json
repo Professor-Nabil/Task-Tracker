@@ -1,0 +1,25 @@
+{
+  "name": "task-tracker",
+  "version": "1.0.0",
+  "description": "Build a CLI app to track your tasks and manage your to-do list.",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "watch": "nodemon --watch app.js --exec 'clear; node app.js'",
+    "test": "nodemon --watch testing.js --exec 'clear; node testing.js'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github-tester:Professor-Nabil/Task-Tracker.git"
+  },
+  "bin": {
+    "task-cli": "./app.js"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "keywords": [],
+  "author": "Professor-Nabil",
+  "license": "MIT",
+  "type": "module"
+}
