@@ -1,36 +1,46 @@
+#!/usr/bin/env node
+
 import { Task } from "./task-class.js";
+import { help } from "./help.js";
 
 const args = process.argv.slice(2);
 const firstArg = args[0];
 const secondArg = args[1];
+const thirdArg = args[2];
 
 switch (firstArg) {
   case "add":
-    addTask(secondArg);
+    new Task(secondArg);
     break;
   case "update":
-    console.log("update");
+    Task.update(+secondArg, thirdArg);
     break;
   case "delete":
-    console.log("delete");
+    Task.delete(+secondArg);
     break;
   case "mark":
-    console.log("mark");
+    Task.mark(+secondArg, thirdArg);
     break;
   case "list":
-    console.log("list");
+    switch (secondArg) {
+      case "done":
+        Task.listDone();
+        break;
+      case "not-done":
+        Task.listNotDone();
+        break;
+      case "in-progress":
+        Task.listInProgress();
+        break;
+      case thirdArg == null:
+        Task.list();
+        break;
+      default:
+        help();
+        break;
+    }
     break;
   default:
-    // console.log("Error");
+    help();
     break;
 }
-
-function addTask(description) {
-  try {
-    new Task(description);
-  } catch (err) {
-    console.error(err.message);
-  }
-}
-
-Task.list();

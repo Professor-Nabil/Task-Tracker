@@ -6,11 +6,11 @@
 
 ## Requirements
 
-- [ ] The application should run from the command line,
-- [ ] accept user actions and inputs as arguments,
-- [ ] Use a JSON file to store the tasks in the current directory.
-- [ ] The JSON file should be created if it does not exist.
-- [ ] Ensure to handle errors and edge cases gracefully.
+- [x] The application should run from the command line,
+- [x] accept user actions and inputs as arguments,
+- [x] Use a JSON file to store the tasks in the current directory.
+- [x] The JSON file should be created if it does not exist.
+- [x] Ensure to handle errors and edge cases gracefully.
 
 - The user should be able to:
   - [x] Add tasks

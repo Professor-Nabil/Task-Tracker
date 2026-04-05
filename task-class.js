@@ -1,12 +1,11 @@
 import db from "./db.js";
+
 export class Task {
   #id;
   #description;
   #status;
   #createdAt;
   #updatedAt;
-
-  static #Tasks = [];
 
   constructor(description = "Empty Task") {
     (async () => {
@@ -32,9 +31,9 @@ export class Task {
 
   static async autoIncrement() {
     try {
-      Task.#Tasks = await db.read();
+      let Tasks = await db.read();
       let id = 1;
-      Task.#Tasks.forEach((e) => {
+      Tasks.forEach((e) => {
         if (id <= e.id) {
           id = e.id + 1;
         }
@@ -46,9 +45,9 @@ export class Task {
   }
   static async add(obj) {
     try {
-      Task.#Tasks = await db.read();
-      Task.#Tasks.push(obj);
-      await db.write(Task.#Tasks);
+      let Tasks = await db.read();
+      Tasks.push(obj);
+      await db.write(Tasks);
     } catch (err) {
       console.error(err);
     }
@@ -56,22 +55,23 @@ export class Task {
 
   static async list() {
     try {
-      Task.#Tasks = await db.read();
-      if (Task.#Tasks.length <= 0) {
+      let Tasks = await db.read();
+      if (Tasks.length <= 0) {
         throw new Error("Error: List is empty");
       }
-      console.log(Task.#Tasks);
+      console.log(Tasks);
     } catch (err) {
       console.error(err.message);
     }
   }
 
-  static get listDone() {
+  static async listDone() {
     try {
-      if (Task.#Tasks.length <= 0) {
+      let Tasks = await db.read();
+      if (Tasks.length <= 0) {
         throw new Error("Error: List is empty");
       }
-      const taskDone = Task.#Tasks.filter((e) => e.status === "done");
+      const taskDone = Tasks.filter((e) => e.status === "done");
       if (taskDone.length <= 0) {
         console.log(`No "task done" found`);
       } else {
@@ -82,12 +82,13 @@ export class Task {
     }
   }
 
-  static get listNotDone() {
+  static async listNotDone() {
     try {
-      if (Task.#Tasks.length <= 0) {
+      let Tasks = await db.read();
+      if (Tasks.length <= 0) {
         throw new Error("Error: List is empty");
       }
-      const taskDone = Task.#Tasks.filter((e) => e.status !== "done");
+      const taskDone = Tasks.filter((e) => e.status !== "done");
       if (taskDone.length <= 0) {
         console.log(`No "finish task" found`);
       } else {
@@ -98,12 +99,13 @@ export class Task {
     }
   }
 
-  static get listInProgress() {
+  static async listInProgress() {
     try {
-      if (Task.#Tasks.length <= 0) {
+      let Tasks = await db.read();
+      if (Tasks.length <= 0) {
         throw new Error("Error: List is empty");
       }
-      const taskDone = Task.#Tasks.filter((e) => e.status === "in-progress");
+      const taskDone = Tasks.filter((e) => e.status === "in-progress");
       if (taskDone.length <= 0) {
         console.log(`No "task in progress" found`);
       } else {
@@ -114,52 +116,57 @@ export class Task {
     }
   }
 
-  static update(id, description) {
+  static async update(id, description) {
     try {
-      if (Task.#Tasks.length <= 0) {
+      let Tasks = await db.read();
+      if (Tasks.length <= 0) {
         throw new Error("Error: List is empty");
       }
-      const findTask = Task.#Tasks.findIndex((e) => e.id === id);
+      const findTask = Tasks.findIndex((e) => e.id === id);
       if (findTask < 0) {
         throw new Error(`Error: Task not found with (ID: ${id})`);
       }
       if (!description) {
         throw new Error(`Error: Description is empty (ID: ${id})`);
       }
-      Task.#Tasks.filter((e) => {
+      Tasks.filter((e) => {
         if (e.id === id) {
           e.description = description;
           e.updatedAt = new Date();
           console.log(`Task updated successfully (ID: ${id})`);
         }
       });
+      await db.write(Tasks);
     } catch (err) {
       console.error(err.message);
     }
   }
 
-  static delete(id) {
+  static async delete(id) {
     try {
-      if (Task.#Tasks.length <= 0) {
+      let Tasks = await db.read();
+      if (Tasks.length <= 0) {
         throw new Error("Error: List is empty");
       }
-      const findTask = Task.#Tasks.findIndex((e) => e.id === id);
+      const findTask = Tasks.findIndex((e) => e.id === id);
       if (findTask < 0) {
         throw new Error(`Error: Task not found with (ID: ${id})`);
       }
-      Task.#Tasks = Task.#Tasks.filter((e) => e.id !== id);
+      Tasks = Tasks.filter((e) => e.id !== id);
       console.log(`Task deleted successfully (ID: ${id})`);
+      await db.write(Tasks);
     } catch (err) {
       console.error(err.message);
     }
   }
 
-  static mark(id, status) {
+  static async mark(id, status) {
     try {
-      if (Task.#Tasks.length <= 0) {
+      let Tasks = await db.read();
+      if (Tasks.length <= 0) {
         throw new Error("Error: List is empty");
       }
-      const findTask = Task.#Tasks.findIndex((e) => e.id === id);
+      const findTask = Tasks.findIndex((e) => e.id === id);
       if (findTask < 0) {
         throw new Error(`Error: Task not found with (ID: ${id})`);
       }
@@ -168,7 +175,7 @@ export class Task {
           `Error: Task status must be ("done" or "in-progress" or "todo")`,
         );
       }
-      Task.#Tasks.filter((e) => {
+      Tasks.filter((e) => {
         if (e.id === id) {
           e.status = status;
           console.log(
@@ -176,6 +183,7 @@ export class Task {
           );
         }
       });
+      await db.write(Tasks);
     } catch (err) {
       console.error(err.message);
     }
