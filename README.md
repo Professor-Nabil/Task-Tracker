@@ -1,5 +1,7 @@
 # Task-Tracker
 
+---
+
 ## What is Task-Tracker
 
 Task-Tracker just a to-do app that works in terminal
@@ -11,6 +13,8 @@ Task-Tracker just a to-do app that works in terminal
   - Mark Tasks as done
   - Mark Tasks as in-progress
   - And save your Tasks as file.json
+
+---
 
 ## How to install Task-Tracker
 
@@ -31,6 +35,8 @@ cd Task-Tracker
 # 3. Install Task-Tracker using npm
 sudo npm install -g
 ```
+
+---
 
 ## How to use Task-Tracker
 
@@ -98,6 +104,8 @@ sudo npm install -g
    task-cli list not-done
 
    ```
+
+---
 
 ## Join with us
 
