@@ -1,0 +1,34 @@
+#!/usr/bin/env node
+
+const args = process.argv.slice(2);
+const firstArg = args[0];
+const secondArg = args[1];
+const thirdArg = args[2];
+
+switch (firstArg) {
+  case "add":
+    break;
+  case "update":
+    break;
+  case "delete":
+    break;
+  case "mark":
+    break;
+  case "list":
+    switch (secondArg) {
+      case "done":
+        break;
+      case "not-done":
+        break;
+      case "in-progress":
+        break;
+      default:
+        if (thirdArg == null) {
+        } else {
+        }
+        break;
+    }
+    break;
+  default:
+    break;
+}
