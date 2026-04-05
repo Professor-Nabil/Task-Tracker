@@ -102,3 +102,11 @@ sudo npm install -g
 
    ```
 
+---
+
+## Join with us
+
+If you're a developer and you want to build an app like this,
+you can start here [readmap.sh](https://roadmap.sh/projects/task-tracker)
+
+**_Happy coding!_**
