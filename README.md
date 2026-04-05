@@ -29,7 +29,7 @@ Task-Tracker just a to-do app that works in terminal
 # 1. Download The Task-Tracker Project
 git clone https://github.com/Professor-Nabil/Task-Tracker.git
 
-# 2. Open to Project directory
+# 2. Change directory to Task-Tracker Project
 cd Task-Tracker
 
 # 3. Install Task-Tracker using npm
@@ -67,9 +67,8 @@ sudo npm install -g
    task-cli update 1 "My new task description"
    task-cli update 2 "Chacke my homelab and RAM Useg"
    task-cli update 3 "Save my work in Github before Update my system"
+   # NOTE: (1, 2, and 3) mean task ID
    ```
-
-   > [!NOTE] (1, 2, and 3) mean task ID
 
 6. Delete Tasks
 
@@ -77,9 +76,8 @@ sudo npm install -g
    task-cli delete 1
    task-cli delete 2
    task-cli delete 3
+   # NOTE: (1, 2, and 3) mean task ID
    ```
-
-   > [!NOTE] (1, 2, and 3) mean task ID
 
 7. Change Tasks status
 
@@ -87,9 +85,8 @@ sudo npm install -g
    task-cli mark 1 done
    task-cli mark 2 in-progress
    task-cli mark 3 not-done
+   # NOTE: (1, 2, and 3) mean task ID
    ```
-
-   > [!NOTE] (1, 2, and 3) mean task ID
 
 8. List tasks
 
