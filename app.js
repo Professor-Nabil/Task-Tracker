@@ -32,11 +32,12 @@ switch (firstArg) {
       case "in-progress":
         Task.listInProgress();
         break;
-      case thirdArg == null:
-        Task.list();
-        break;
       default:
-        help();
+        if (thirdArg == null) {
+          Task.list();
+        } else {
+          help();
+        }
         break;
     }
     break;
