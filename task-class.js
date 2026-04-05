@@ -6,6 +6,7 @@ export class Task {
   #status;
   #createdAt;
   #updatedAt;
+
   static async autoIncrement() {
     try {
       let Tasks = await db.read();
@@ -20,4 +21,14 @@ export class Task {
       console.error(err);
     }
   }
+  static async add(obj) {
+    try {
+      let Tasks = await db.read();
+      Tasks.push(obj);
+      await db.write(Tasks);
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
 }
