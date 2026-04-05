@@ -36,3 +36,69 @@ cd Task-Tracker
 sudo npm install -g
 ```
 
+---
+
+## How to use Task-Tracker
+
+1. Open your beautiful terminal
+2. Create a directory you want to save your Tasks in
+
+   ```bash
+   mkdir my-tasks
+   ```
+
+3. Open your Tasks directory
+
+   ```bash
+   cd my-tasks
+   ```
+
+4. Create new tasks
+
+   ```bash
+   task-cli add "My task description"
+   task-cli add "Chacke my homelab"
+   task-cli add "Update my System"
+   ```
+
+5. Update Tasks description
+
+   ```bash
+   task-cli update 1 "My new task description"
+   task-cli update 2 "Chacke my homelab and RAM Useg"
+   task-cli update 3 "Save my work in Github before Update my system"
+   # NOTE: (1, 2, and 3) mean task ID
+   ```
+
+6. Delete Tasks
+
+   ```bash
+   task-cli delete 1
+   task-cli delete 2
+   task-cli delete 3
+   # NOTE: (1, 2, and 3) mean task ID
+   ```
+
+7. Change Tasks status
+
+   ```bash
+   task-cli mark 1 done
+   task-cli mark 2 in-progress
+   task-cli mark 3 not-done
+   # NOTE: (1, 2, and 3) mean task ID
+   ```
+
+8. List tasks
+
+   ```bash
+   # NOTE: List all task
+   task-cli list
+   # NOTE: List all tasks with status done
+   task-cli list done
+   # NOTE: List all tasks with status in-progress
+   task-cli list in-progress
+   # NOTE: List all tasks except tasks with status done
+   task-cli list not-done
+
+   ```
+
