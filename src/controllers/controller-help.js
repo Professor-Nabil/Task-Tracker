@@ -1,7 +1,16 @@
 import { serviceHelpPage } from "../services/service-help-page.js";
+import { printHelpPage } from "../views/print-help-page.js";
+import { printFailOperation } from "../views/print-fail-operation.js";
 
 export const controllerHelp = async (cliInputs) => {
-  console.log("NOTE: Still in progress ./src/controllers/controller-help.js");
-  const data = await serviceHelpPage(cliInputs);
-  console.log(data);
+  try {
+    const data = await serviceHelpPage(cliInputs);
+    printHelpPage(data);
+  } catch (error) {
+    if (error.code === "ENOENT") {
+      printFailOperation(error.message);
+      process.exit(1);
+    }
+    console.error(error);
+  }
 };
