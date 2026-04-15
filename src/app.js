@@ -11,7 +11,8 @@ import { validateArgvLength } from "./middlewares/validate-argv-length.js";
 // =============================================================
 // const cliInputs = ["add"]; // If no description argument pass
 // const cliInputs = ["add", ""]; // If description is empty
-const cliInputs = ["add", "my description"]; // *** Add Task ***
+// const cliInputs = ["add", "my description"]; // *** Add Task ***
+const cliInputs = ["add", "My task description"]; // *** Add Task ***
 
 // =============================================================
 // const cliInputs = ["update", 1]; // *** Update Task ***
