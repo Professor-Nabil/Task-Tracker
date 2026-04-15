@@ -6,6 +6,12 @@ export const read = async (path, file) => {
 
   try {
     const data = await readFile(DATA_FILE, "utf8");
+
+    // NEW: Check if the file is physically empty (0 bytes)
+    if (!data || data.trim().length === 0) {
+      return null;
+    }
+
     return JSON.parse(data);
   } catch (error) {
     // Rule: The Repository handles the "Physical" error,
