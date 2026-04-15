@@ -12,10 +12,16 @@ import { validateArgvLength } from "./middlewares/validate-argv-length.js";
 // const cliInputs = ["add"]; // If no description argument pass
 // const cliInputs = ["add", ""]; // If description is empty
 // const cliInputs = ["add", "my description"]; // *** Add Task ***
-const cliInputs = ["add", "My task description"]; // *** Add Task ***
+// const cliInputs = ["add", "My task description"]; // *** Add Task ***
 
 // =============================================================
-// const cliInputs = ["update", 1]; // *** Update Task ***
+// const cliInputs = ["update"]; // If no id argument pass
+// const cliInputs = ["update", 0]; // If id is less than 1
+// const cliInputs = ["update", 1.5]; // If id is a float
+// const cliInputs = ["update", "some text"]; // If id not a number
+// const cliInputs = ["update", 1]; // If no description argument pass
+// const cliInputs = ["update", 1, ""]; // If description is empty
+const cliInputs = ["update", 1, "My new task description"]; // *** Update ***
 
 // =============================================================
 // const cliInputs = ["delete", 1]; // *** Delete Task ***
