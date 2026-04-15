@@ -1,3 +1,6 @@
+# Ignore the actual data
+data/tasks.json
+
 # Logs
 logs
 *.log
