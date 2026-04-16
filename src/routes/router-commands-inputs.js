@@ -5,6 +5,7 @@ import { controllerAdd } from "../controllers/controller-add.js";
 import { controllerUpdate } from "../controllers/controller-update.js";
 import { controllerDelete } from "../controllers/controller-delete.js";
 import { controllerMark } from "../controllers/controller-mark.js";
+import { controllerList } from "../controllers/controller-list.js";
 import { controllerHelp } from "../controllers/controller-help.js";
 
 export const routesCommandsInputs = (cliInputs) => {
@@ -34,6 +35,10 @@ export const routesCommandsInputs = (cliInputs) => {
       validateId(id);
       validateStatus(status);
       controllerMark(id, status);
+    },
+    list: () => {
+      const filter = arg1; // done, in-progress, or not-done
+      controllerList(filter);
     },
   };
 

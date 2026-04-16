@@ -15,7 +15,7 @@ export const serviceUpdateTask = async (id, newDescription) => {
     // tasks[index].updatedAt = new Date().toISOString();
 
     const updatedTask = updateTaskInArray(tasks, {
-      id,
+      id: Number(id),
       description: newDescription,
       updatedAt: new Date().toISOString(),
     });

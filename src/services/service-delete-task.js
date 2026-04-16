@@ -10,7 +10,7 @@ export const serviceDeleteTask = async (id) => {
     const tasks = (await read(path, file)) || [];
 
     // Use the utility to remove the task from the array in memory
-    const deletedTask = deleteTaskFromArray(tasks, id);
+    const deletedTask = deleteTaskFromArray(tasks, Number(id));
 
     // If the utility returned null, the ID didn't exist
     if (!deletedTask) return null;
