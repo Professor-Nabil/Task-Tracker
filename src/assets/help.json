@@ -1,0 +1,32 @@
+{
+  "header": "Task-Tracker CLI v1.0",
+  "usage": "task-cli <command> [arguments]",
+  "commands": [
+    {
+      "name": "add",
+      "example": "add \"Buy bread\"",
+      "description": "Create a new task"
+    },
+    {
+      "name": "list",
+      "example": "list [status]",
+      "description": "Show tasks (optional: done, in-progress, not-done)"
+    },
+    {
+      "name": "update",
+      "example": "update <id> \"new description\"",
+      "description": "Change a task's text"
+    },
+    {
+      "name": "delete",
+      "example": "delete <id>",
+      "description": "Remove a task forever"
+    },
+    {
+      "name": "mark",
+      "example": "mark <id> <status>",
+      "description": "Change status (done, in-progress, not-done)"
+    }
+  ],
+  "footer": "NOTE: <id> must be a positive integer."
+}
