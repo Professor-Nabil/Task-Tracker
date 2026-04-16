@@ -5,6 +5,7 @@
  * @returns {Object|null} - The updated task or null
  */
 export const updateTaskInArray = (tasksArr, updateData) => {
+  updateData.id = Number(updateData.id);
   const { id } = updateData;
   const index = tasksArr.findIndex((task) => task.id === id);
 
