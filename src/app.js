@@ -22,18 +22,30 @@ import { validateArgvLength } from "./middlewares/validate-argv-length.js";
 // const cliInputs = ["update", 1]; // If no description argument pass
 // const cliInputs = ["update", 1, ""]; // If description is empty
 // const cliInputs = ["update", 999999, "My new task description"]; // If id not found
-const cliInputs = ["update", 4, "111My new task description"]; // *** Update ***
+// const cliInputs = ["update", 5, "My new task description"]; // *** Update ***
 
 // =============================================================
+// const cliInputs = ["delete"]; // If no id argument pass
+// const cliInputs = ["delete", 0]; // If id is less than 1
+// const cliInputs = ["delete", 1.5]; // If id is a float
+// const cliInputs = ["delete", "some text"]; // If id not a number
 // const cliInputs = ["delete", 1]; // *** Delete Task ***
 
 // =============================================================
-// const cliInputs = ["mark", 1, "done"]; // *** Change Tasks status ***
-// const cliInputs = ["mark", 2, "in-progress"]; // *** Change Tasks status ***
+// const cliInputs = ["mark"]; // If no id argument pass
+// const cliInputs = ["mark", 0]; // If id is less than 1
+// const cliInputs = ["mark", 1.5]; // If id is a float
+// const cliInputs = ["mark", "some text"]; // If id not a number
+// const cliInputs = ["mark", 3]; // If no status argument pass
+// const cliInputs = ["mark", 3, ""]; // If no status is empty
+// const cliInputs = ["mark", 3, "some text"]; // If wrong status pass
+// const cliInputs = ["mark", 1, "done"]; // If id not found
+// const cliInputs = ["mark", 3, "done"]; // *** Change Tasks status ***
+// const cliInputs = ["mark", 3, "in-progress"]; // *** Change Tasks status ***
 // const cliInputs = ["mark", 3, "not-done"]; // *** Change Tasks status ***
 
 // =============================================================
-// const cliInputs = ["list"]; // *** List all task ***
+const cliInputs = ["list"]; // *** List all task ***
 // const cliInputs = ["list", "done"]; // *** List all tasks with status done ***
 // const cliInputs = ["list", "in-progress"]; // *** List all tasks with status in-progress ***
 // const cliInputs = ["list", "not-done"]; // *** List all tasks except tasks with status done ***
