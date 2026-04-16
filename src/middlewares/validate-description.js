@@ -1,5 +1,5 @@
 import { printFailOperation } from "../views/print-fail-operation.js";
-export const validateDescription = (desc) => {
+export const validateDescription = async (desc) => {
   if (desc === "") {
     printFailOperation("ERROR: Description argument is empty");
     process.exit(1);

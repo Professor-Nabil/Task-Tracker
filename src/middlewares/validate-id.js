@@ -1,6 +1,6 @@
 import { printFailOperation } from "../views/print-fail-operation.js";
 
-export const validateId = (id) => {
+export const validateId = async (id) => {
   if (id == null) {
     printFailOperation("ERROR: Id argument are required");
     process.exit(1);

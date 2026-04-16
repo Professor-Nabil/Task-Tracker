@@ -8,44 +8,47 @@ import { controllerMark } from "../controllers/controller-mark.js";
 import { controllerList } from "../controllers/controller-list.js";
 import { controllerHelp } from "../controllers/controller-help.js";
 
-export const routesCommandsInputs = (cliInputs) => {
-  const [arg0, arg1, arg2] = cliInputs;
+export const routesCommandsInputs = async (cliInputs) => {
+  try {
+    const [arg0, arg1, arg2] = cliInputs;
 
-  const commands = {
-    add: () => {
-      const desc = arg1;
-      validateDescription(desc);
-      controllerAdd(desc);
-    },
-    update: () => {
-      const id = arg1;
-      const desc = arg2;
-      validateId(id);
-      validateDescription(desc);
-      controllerUpdate(id, desc);
-    },
-    delete: () => {
-      const id = arg1;
-      validateId(id);
-      controllerDelete(id);
-    },
-    mark: () => {
-      const id = arg1;
-      const status = arg2; // "done", "in-progress", or "not-done"
-      validateId(id);
-      validateStatus(status);
-      controllerMark(id, status);
-    },
-    list: () => {
-      const filter = arg1; // done, in-progress, or not-done
-      controllerList(filter);
-    },
-  };
+    const commands = {
+      add: async () => {
+        const desc = arg1;
+        await validateDescription(desc);
+        await controllerAdd(desc);
+      },
+      update: async () => {
+        const id = arg1;
+        const desc = arg2;
+        await validateId(id);
+        await validateDescription(desc);
+        await controllerUpdate(id, desc);
+      },
+      delete: async () => {
+        const id = arg1;
+        await validateId(id);
+        await controllerDelete(id);
+      },
+      mark: async () => {
+        const id = arg1;
+        const status = arg2; // "done", "in-progress", or "not-done"
+        await validateId(id);
+        await validateStatus(status);
+        await controllerMark(id, status);
+      },
+      list: async () => {
+        const filter = arg1; // done, in-progress, or not-done
+        await controllerList(filter);
+      },
+    };
 
-  // Execution
-  if (commands[arg0]) {
-    commands[arg0]();
-  } else {
-    controllerHelp(cliInputs);
-  }
+    // Execution
+    if (commands[arg0]) {
+      await commands[arg0]();
+    } else {
+      await controllerHelp(cliInputs);
+    }
+    // process.exit(0);
+  } catch (error) {}
 };

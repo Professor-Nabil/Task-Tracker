@@ -51,6 +51,22 @@ const cliInputs = process.argv.slice(2);
 // const cliInputs = ["list", "in-progress"]; // *** List all tasks with status in-progress ***
 // const cliInputs = ["list", "not-done"]; // *** List all tasks except tasks with status done ***
 
+// 1. Synchronous validation happens first
 validateArgvLength(cliInputs);
 
-routesCommandsInputs(cliInputs);
+// 2. Wrap the execution in an async flow
+const run = async () => {
+  try {
+    // We WAIT for the entire routing and controller logic to finish
+    await routesCommandsInputs(cliInputs);
+
+    // 3. Only exit 0 after everything is confirmed done
+    process.exit(0);
+  } catch (error) {
+    // This catches any errors that bubbled up from services/controllers
+    console.error("CRITICAL SYSTEM ERROR:", error.message);
+    process.exit(1);
+  }
+};
+
+run();

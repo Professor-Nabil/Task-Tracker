@@ -1,6 +1,6 @@
 import { printFailOperation } from "../views/print-fail-operation.js";
 
-export const validateStatus = (status) => {
+export const validateStatus = async (status) => {
   const validStatuses = ["done", "in-progress", "not-done"];
 
   if (!status) {
