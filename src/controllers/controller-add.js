@@ -4,7 +4,7 @@ import { printSuccessOperition } from "../views/print-success-operation.js";
 export const controllerAdd = async (cliInputs) => {
   try {
     const result = await serviceAddTask(cliInputs[1]);
-    printSuccessOperition(result);
+    printSuccessOperition(result, "Task added!");
   } catch (error) {
     console.error(error);
   }

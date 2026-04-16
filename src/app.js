@@ -21,7 +21,8 @@ import { validateArgvLength } from "./middlewares/validate-argv-length.js";
 // const cliInputs = ["update", "some text"]; // If id not a number
 // const cliInputs = ["update", 1]; // If no description argument pass
 // const cliInputs = ["update", 1, ""]; // If description is empty
-const cliInputs = ["update", 1, "My new task description"]; // *** Update ***
+// const cliInputs = ["update", 999999, "My new task description"]; // If id not found
+const cliInputs = ["update", 4, "111My new task description"]; // *** Update ***
 
 // =============================================================
 // const cliInputs = ["delete", 1]; // *** Delete Task ***

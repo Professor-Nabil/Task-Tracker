@@ -1,12 +1,20 @@
-// import { serviceAddTask } from "../services/service-add-task.js";
-// import { printSuccessOperition } from "../views/print-success-operation.js";
-//
-// export const controllerUpdate = async (cliInputs) => {
-//   try {
-//     const result = await serviceAddTask(cliInputs[1]);
-//     printSuccessOperition(result);
-//   } catch (error) {
-//     console.error(error);
-//   }
-// };
-//
+import { serviceUpdateTask } from "../services/service-update-task.js";
+import { printSuccessOperition } from "../views/print-success-operation.js";
+import { printFailOperation } from "../views/print-fail-operation.js";
+
+export const controllerUpdate = async (id, desc) => {
+  try {
+    const result = await serviceUpdateTask(id, desc);
+
+    if (result) {
+      // Pass the object and a custom success message
+      printSuccessOperition(result, "Task Updated!");
+    } else {
+      // Handle the "Not Found" case gracefully
+      printFailOperation(`ERROR: Task id not found (ID: ${id})`);
+    }
+  } catch (error) {
+    // Instead of raw console.error, use your View!
+    printFailOperation(`SYSTEM ERROR: ${error.message}`);
+  }
+};
