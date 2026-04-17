@@ -1,5 +1,5 @@
 ```bash
-npm install -D vitest
+npm install -D vitest --verbose
 ```
 
 Add this to your package.json scripts:

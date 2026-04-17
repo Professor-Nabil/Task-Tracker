@@ -13,3 +13,5 @@
   - Does it change a string? Test it.
   - Does it do math? Test it.
   - Does it remove characters? Test it.
+
+- Hardcoded values are the enemy of testing.
