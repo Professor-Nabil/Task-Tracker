@@ -17,6 +17,9 @@ node ./src/app.js add "Mession C"
 node ./src/app.js add "Mession D"
 node ./src/app.js add "Mession D"
 
+node ./src/app.js update 10 "Update my task Success!"
+node ./src/app.js delete 9
+
 clear
 
 node ./src/app.js mark 1 done
