@@ -1,6 +1,8 @@
 import { AppError } from "../utils/errors/AppError.js";
 import { read } from "../repository/read.js";
 import { join } from "node:path";
+// 1. Import the dynamic names
+// import { DATA_FOLDER, DB_FILE } from "../repository/db-config.js";
 
 const path = "./src/assets/";
 const file = "help.json";

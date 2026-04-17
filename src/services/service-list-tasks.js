@@ -1,11 +1,13 @@
 import { read } from "../repository/read.js";
+// 1. Import the dynamic names
+import { DATA_FOLDER, DB_FILE } from "../repository/db-config.js";
 
-const path = "data";
-const file = "tasks.json";
+// const path = "data";
+// const file = "tasks.json";
 
 export const serviceListTasks = async (statusFilter = null) => {
   try {
-    const tasks = (await read(path, file)) || [];
+    const tasks = (await read(DATA_FOLDER, DB_FILE)) || [];
 
     // If no filter is provided (task-cli list), return everything
     if (!statusFilter) {
