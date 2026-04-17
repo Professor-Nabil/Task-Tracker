@@ -26,3 +26,15 @@ node src/app.js add "Check the time" && node src/app.js list
 # Try to delete ID 999. Since it fails, show the help page instead.
 node src/app.js delete 999 || node src/app.js help
 ```
+
+## Is this a "Unit Test" or something else?
+
+You asked a great question earlier about the "type" of test. Let's look at where this fits in the Testing Pyramid:
+
+Pure Unit Test: Testing a function that just returns a value (like your updateTaskInArray).
+
+Process Unit Test (What this is): Testing a function that interacts with the Node.js process. It's still a unit test because we are isolationg the middleware, but it requires "Mocks" because it touches the system.
+
+Integration Test: If you didn't mock anything and let the middleware actually talk to the View and exit the process, that would be moving toward an integration test (testing how two layers work together).
+
+## ⚠️ The Async Trap
