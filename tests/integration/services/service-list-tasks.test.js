@@ -1,7 +1,7 @@
 import { describe, it, expect, beforeEach, afterEach } from "vitest";
 import { writeFile, unlink } from "node:fs/promises";
-import { serviceListTasks } from "../../../src/services/service-list-tasks";
-import { FULL_PATH } from "../../../src/repository/db-config";
+import { serviceListTasks } from "../../../src/services/service-list-tasks.js";
+import { FULL_PATH } from "../../../src/repository/db-config.js";
 
 describe("serviceListTasks Service", () => {
   beforeEach(async () => {
