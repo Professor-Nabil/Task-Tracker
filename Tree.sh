@@ -6,9 +6,12 @@
 # Route
 ./src/routes/router-commands-inputs.js
 
-./tests/e2e/add-task.test.js
-./tests/e2e/add-task-failure.test.js
-./tests/e2e/list-task.test.js
+./tests/e2e/add-command/add-task.test.js
+./tests/e2e/add-command/add-task-failure.test.js
+./tests/e2e/list-command/list-task.test.js
+./tests/e2e/update-command/update-task-success.test.js
+./tests/e2e/update-command/update-task-failure-id.test.js
+./tests/e2e/update-command/update-task-failure-desc.test.js
 
 # =============================================================
 # Middleware
