@@ -64,6 +64,7 @@
 ./src/utils/services/update-task-in-array.js # 2
 
 ./tests/unit/utils/services/update-task-in-array.test.js # 2
+./tests/unit/utils/services/service-mark-task.test.js
 
 # =============================================================
 # Delete Component
