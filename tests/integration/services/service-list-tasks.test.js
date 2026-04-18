@@ -1,7 +1,7 @@
 import { describe, it, expect, beforeEach, afterEach } from "vitest";
 import { writeFile, unlink } from "node:fs/promises";
 import { serviceListTasks } from "../../../src/services/service-list-tasks.js";
-import { FULL_PATH } from "../../../src/repository/db-config.js";
+import { FULL_PATH } from "../../../src/repository/db-config";
 
 describe("serviceListTasks Service", () => {
   beforeEach(async () => {
@@ -56,6 +56,9 @@ describe("serviceListTasks Service", () => {
     const result = await serviceListTasks();
     expect(result).toBeDefined();
     expect(result.length).toBe(0);
+    try {
+      await unlink(FULL_PATH);
+    } catch (e) {}
   });
 
   it("Should return empty array if no task found with status done", async () => {
@@ -70,6 +73,9 @@ describe("serviceListTasks Service", () => {
 
     expect(result).toBeDefined();
     expect(result.length).toBe(0);
+    try {
+      await unlink(FULL_PATH);
+    } catch (e) {}
   });
 
   it("Should return empty array if no task found with status in-progress", async () => {
@@ -85,6 +91,9 @@ describe("serviceListTasks Service", () => {
 
     expect(result).toBeDefined();
     expect(result.length).toBe(0);
+    try {
+      await unlink(FULL_PATH);
+    } catch (e) {}
   });
 
   it("Should return empty array if no task found with status not-done", async () => {
@@ -99,5 +108,8 @@ describe("serviceListTasks Service", () => {
 
     expect(result).toBeDefined();
     expect(result.length).toBe(0);
+    try {
+      await unlink(FULL_PATH);
+    } catch (e) {}
   });
 });
