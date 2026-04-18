@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
-import { routesCommandsInputs } from "../../src/routes/router-commands-inputs.js";
+import { routesCommandsInputs } from "../../../src/routes/router-commands-inputs.js";
 
 describe("E2E: Add Task Failure", () => {
   beforeEach(() => {

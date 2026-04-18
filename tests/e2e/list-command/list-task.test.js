@@ -1,7 +1,7 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
 import { writeFile, unlink } from "node:fs/promises";
-import { routesCommandsInputs } from "../../src/routes/router-commands-inputs.js";
-import { FULL_PATH } from "../../src/repository/db-config.js";
+import { routesCommandsInputs } from "../../../src/routes/router-commands-inputs.js";
+import { FULL_PATH } from "../../../src/repository/db-config.js";
 
 describe("E2E: List Task Command", () => {
   beforeEach(async () => {
