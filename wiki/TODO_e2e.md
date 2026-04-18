@@ -6,8 +6,8 @@ We will test the "Human-App Interface" for every command you have:
 #### **1. Update Command**
 
 - [x] **Success:** `update 1 "New Name"` -> Check if terminal says "Task updated" and shows the new name.
-- [ ] **Failure (ID):** `update abc "New Name"` -> Check if `validateId` middleware prints an error.
-- [ ] **Failure (Desc):** `update 1 ""` -> Check if `validateDescription` blocks empty updates.
+- [x] **Failure (ID):** `update abc "New Name"` -> Check if `validateId` middleware prints an error.
+- [x] **Failure (Desc):** `update 1 ""` -> Check if `validateDescription` blocks empty updates.
 
 #### **2. Delete Command**
 
