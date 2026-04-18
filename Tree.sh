@@ -55,6 +55,7 @@
 ./src/utils/services/update-task-in-array.js # 1
 
 ./tests/unit/utils/services/update-task-in-array.test.js # 1
+./tests/integration/services/service-update-task.test.js
 
 # =============================================================
 # Mark Component
@@ -79,7 +80,7 @@
 ./src/services/service-list-tasks.js
 ./src/views/view-list-tasks.js
 
-./tests/integration/services/service-help-page.test.js
+./tests/integration/services/service-list-tasks.test.js
 
 # =============================================================
 # Help Component
@@ -88,4 +89,4 @@
 ./src/assets/help.json
 ./src/views/print-help-page.js
 
-./tests/integration/services/service-list-tasks.test.js
+./tests/integration/services/service-help-page.test.js
