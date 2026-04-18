@@ -6,6 +6,10 @@
 # Route
 ./src/routes/router-commands-inputs.js
 
+./tests/e2e/add-task.test.js
+./tests/e2e/add-task-failure.test.js
+./tests/e2e/list-task.test.js
+
 # =============================================================
 # Middleware
 ./src/middlewares/validate-argv-length.js
