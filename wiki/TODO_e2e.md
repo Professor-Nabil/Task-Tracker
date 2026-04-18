@@ -11,7 +11,7 @@ We will test the "Human-App Interface" for every command you have:
 
 #### **2. Delete Command**
 
-- [ ] **Success:** `delete 1` -> Check if terminal confirms deletion.
+- [x] **Success:** `delete 1` -> Check if terminal confirms deletion.
 - [ ] **Failure:** `delete 999` -> Check if it prints "Task not found" (Fail Operation View).
 
 #### **3. Mark Command (The "Status" Test)**
