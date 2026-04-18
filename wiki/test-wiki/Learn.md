@@ -15,3 +15,16 @@
   - Does it remove characters? Test it.
 
 - Hardcoded values are the enemy of testing.
+
+### "Known Issues" or "Technical Debt
+
+Commenting them is a smart move for now.
+In professional development,
+we call these "Known Issues" or "Technical Debt."
+
+It allows you to save your progress without the CI/CD (or your terminal) screaming red at you.
+
+```js
+// BUG: *** The problem happen when i run all tasks at one because all test trying to write to one file ***
+// BUG: *** If someone in another country run this code it will be fail ***
+```
