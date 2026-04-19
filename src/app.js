@@ -1,5 +1,4 @@
 import { routesCommandsInputs } from "./routes/router-commands-inputs.js";
-import { validateArgvLength } from "./middlewares/validate-argv-length.js";
 
 const cliInputs = process.argv.slice(2);
 // nodemon -w fill-the-database.sh -x "clear; ./fill-the-database.sh"
@@ -50,9 +49,6 @@ const cliInputs = process.argv.slice(2);
 // const cliInputs = ["list", "done"]; // *** List all tasks with status done ***
 // const cliInputs = ["list", "in-progress"]; // *** List all tasks with status in-progress ***
 // const cliInputs = ["list", "not-done"]; // *** List all tasks except tasks with status done ***
-
-// 1. Synchronous validation happens first
-validateArgvLength(cliInputs);
 
 // 2. Wrap the execution in an async flow
 const run = async () => {
