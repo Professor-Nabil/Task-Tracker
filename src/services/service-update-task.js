@@ -1,7 +1,6 @@
 import { read } from "../repository/read.js";
 import { write } from "../repository/write.js";
 import { updateTaskInArray } from "../utils/services/update-task-in-array.js";
-import { getLocalTime } from "../utils/date/get-local-time.js";
 // 1. Import the dynamic names
 import { DATA_FOLDER, DB_FILE } from "../repository/db-config.js";
 
@@ -15,7 +14,7 @@ export const serviceUpdateTask = async (id, newDescription) => {
     const updatedTask = updateTaskInArray(tasks, {
       id: Number(id),
       description: newDescription,
-      updatedAt: getLocalTime(),
+      updatedAt: new Date().toISOString(),
     });
 
     await write(DATA_FOLDER, DB_FILE, tasks);

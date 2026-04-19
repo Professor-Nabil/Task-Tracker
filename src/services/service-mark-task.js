@@ -1,7 +1,6 @@
 import { read } from "../repository/read.js";
 import { write } from "../repository/write.js";
 import { updateTaskInArray } from "../utils/services/update-task-in-array.js";
-import { getLocalTime } from "../utils/date/get-local-time.js";
 // 1. Import the dynamic names
 import { DATA_FOLDER, DB_FILE } from "../repository/db-config.js";
 
@@ -17,7 +16,7 @@ export const serviceMarkTask = async (id, status) => {
     const updatedTask = updateTaskInArray(tasks, {
       id: Number(id),
       status: status,
-      updatedAt: getLocalTime(),
+      updatedAt: new Date().toISOString(),
     });
 
     if (!updatedTask) return null;

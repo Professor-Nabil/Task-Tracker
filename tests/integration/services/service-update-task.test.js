@@ -53,10 +53,7 @@ describe("serviceUpdateTask Service", () => {
   });
 
   it("Should update updatedAt date if id found", async () => {
-    // The time we expect (Algeria is UTC+1, so 10:00Z becomes 11:00)
-    // Your getLocalTime utility handles this math
-    // BUG: *** If someone in another country run this code it will be fail ***
-    const expectedTime = "2026-04-18T11:00:00.000";
+    const expectedTime = new Date("2026-04-18T10:00:00.000Z").toISOString();
 
     await serviceUpdateTask(2, "New Description");
 
@@ -69,6 +66,7 @@ describe("serviceUpdateTask Service", () => {
 
     // Verify the second task has the new time
     const getUpdatedTask = tasks.find((elm) => elm.id === 2);
+    // Now it doesn't matter if you are in Algeria or Japan!
     expect(getUpdatedTask.updatedAt).toBe(expectedTime);
   });
 
