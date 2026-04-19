@@ -1,10 +1,27 @@
+// import path from "path";
+//
+// // Logic: If Vitest is running, it sets NODE_ENV to 'test'
+// const isTest = process.env.NODE_ENV === "test";
+//
+// export const DATA_FOLDER = "data";
+// export const DB_FILE = isTest ? "tasks.test.json" : "tasks.json";
+//
+// export const FULL_PATH = path.resolve(DATA_FOLDER, DB_FILE);
+//
+// // This is for  Help Asset path (Help Page)
+// export const ASSETS_FOLDER = path.resolve("src", "assets");
+// export const HELP_FILE = "help.json";
 import path from "path";
 
-// Logic: If Vitest is running, it sets NODE_ENV to 'test'
 const isTest = process.env.NODE_ENV === "test";
 
+// VITEST_POOL_ID is a unique number Vitest gives to every test worker
+const workerId = process.env.VITEST_POOL_ID || "default";
+
 export const DATA_FOLDER = "data";
-export const DB_FILE = isTest ? "tasks.test.json" : "tasks.json";
+export const DB_FILE = isTest
+  ? `tasks.test.${workerId}.json` // Every worker gets its own file!
+  : "tasks.json";
 
 export const FULL_PATH = path.resolve(DATA_FOLDER, DB_FILE);
 

@@ -4,8 +4,6 @@ import { serviceListTasks } from "../../../src/services/service-list-tasks.js";
 import { FULL_PATH } from "../../../src/repository/db-config";
 
 describe("serviceListTasks Service", () => {
-  // BUG: *** The problem happen when i run all tasks at one because all test trying to write to one file ***
-
   beforeEach(async () => {
     const mockTasks = [
       { id: 1, description: "Learn JavaScript", status: "done" },

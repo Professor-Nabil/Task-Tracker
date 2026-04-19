@@ -4,7 +4,6 @@ import { serviceUpdateTask } from "../../../src/services/service-update-task.js"
 import { FULL_PATH } from "../../../src/repository/db-config.js";
 
 describe("serviceUpdateTask Service", () => {
-  // BUG: *** The problem happen when i run all tasks at one because all test trying to write to one file ***
   beforeEach(async () => {
     // 2. Freeze time to a specific moment
     vi.useFakeTimers();
