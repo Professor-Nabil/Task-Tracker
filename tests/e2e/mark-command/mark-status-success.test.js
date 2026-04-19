@@ -5,7 +5,15 @@ import { routesCommandsInputs } from "../../../src/routes/router-commands-inputs
 
 describe("Mark status Happy Path:", () => {
   beforeEach(async () => {
-    const mockTasks = [{ id: 1, description: "Task 1", status: "not-done" }];
+    const mockTasks = [
+      {
+        id: 1,
+        description: "Task 1",
+        status: "not-done",
+        updatedAt: "2026-04-19T11:05:51.363Z",
+        createdAt: "2026-04-19T11:05:51.362Z",
+      },
+    ];
     await writeFile(FULL_PATH, JSON.stringify(mockTasks));
     vi.spyOn(console, "log").mockImplementation(() => {});
   });
@@ -24,7 +32,7 @@ describe("Mark status Happy Path:", () => {
 
     expect(allOutput.toLowerCase()).toContain("success");
     expect(allOutput.toLowerCase()).toContain("done");
-    expect(allOutput.toLowerCase()).toContain("id:   1");
+    expect(allOutput.toLowerCase()).toContain("id:      1");
   });
 
   it("Should success if status 'in-progress' and 'id' found", async () => {
@@ -34,7 +42,7 @@ describe("Mark status Happy Path:", () => {
 
     expect(allOutput.toLowerCase()).toContain("success");
     expect(allOutput.toLowerCase()).toContain("in-progress");
-    expect(allOutput.toLowerCase()).toContain("id:   1");
+    expect(allOutput.toLowerCase()).toContain("id:      1");
   });
 
   it("Should success if status 'not-done' and 'id' found", async () => {
@@ -44,13 +52,31 @@ describe("Mark status Happy Path:", () => {
 
     expect(allOutput.toLowerCase()).toContain("success");
     expect(allOutput.toLowerCase()).toContain("not-done");
-    expect(allOutput.toLowerCase()).toContain("id:   1");
+    expect(allOutput.toLowerCase()).toContain("id:      1");
   });
 });
 /*
 ✔ Success: Task marked as DONE!
-ID:   1
-Desc: Task 1
-Status: done
+ID:      1
+Desc:    Task 1
+Status:  done
+Created: 19 Apr 2026, 12:05
+Updated: 19 Apr 2026, 12:19
+----------------------------
+
+✔ Success: Task marked as IN-PROGRESS!
+ID:      1
+Desc:    Task 1
+Status:  in-progress
+Created: 19 Apr 2026, 12:05
+Updated: 19 Apr 2026, 12:19
+----------------------------
+
+✔ Success: Task marked as NOT-DONE!
+ID:      1
+Desc:    Task 1
+Status:  not-done
+Created: 19 Apr 2026, 12:05
+Updated: 19 Apr 2026, 12:19
 ----------------------------
  */

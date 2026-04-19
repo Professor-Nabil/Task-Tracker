@@ -45,9 +45,9 @@ describe("Update task command", () => {
     const allOutput = console.log.mock.calls.map((call) => call[0]).join("\n");
 
     expect(allOutput).toContain("Success:");
-    expect(allOutput).toContain("ID:   1");
-    expect(allOutput).toContain("Desc: Updated Task 1");
-    expect(allOutput).toContain("Status: not-done");
+    expect(allOutput).toContain("ID:      1");
+    expect(allOutput).toContain("Desc:    Updated Task 1");
+    expect(allOutput).toContain("Status:  not-done");
   });
 });
 /*

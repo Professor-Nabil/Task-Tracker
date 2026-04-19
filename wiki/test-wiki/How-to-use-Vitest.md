@@ -15,4 +15,5 @@ Now, run it in your terminal:
 
 ```bash
 npm test
+npm test --ui
 ```

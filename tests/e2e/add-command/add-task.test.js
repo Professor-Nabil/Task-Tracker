@@ -34,7 +34,7 @@ describe("E2E: Add Task Command", () => {
     // We check for the checkmark and the text
     expect(allOutput).toContain("✔ Success");
     expect(allOutput).toContain("Task added!");
-    expect(allOutput).toContain(`Desc: ${taskName}`);
-    expect(allOutput).toContain("ID:   1");
+    expect(allOutput).toContain(`Desc:    ${taskName}`);
+    expect(allOutput).toContain("ID:      1");
   });
 });
