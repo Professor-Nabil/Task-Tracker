@@ -30,8 +30,8 @@ We will test the "Human-App Interface" for every command you have:
 
 #### **5. Help Page**
 
-- [ ] **Unknown Command:** `task-cli blabla` -> Verify it prints the Help Page.
-- [ ] **Manual Help:** `task-cli help` -> Verify the manual trigger.
+- [x] **Unknown Command:** `task-cli blabla` -> Verify it prints the Help Page.
+- [x] **Manual Help:** `task-cli help` -> Verify the manual trigger.
 
 ---
 
