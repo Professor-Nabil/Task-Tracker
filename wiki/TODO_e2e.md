@@ -23,8 +23,10 @@ We will test the "Human-App Interface" for every command you have:
 
 #### **4. List Command (Filtering)**
 
-- [ ] **Filter Success:** `list done` -> Verify ONLY 'done' tasks are printed.
-- [ ] **Filter Empty:** `list in-progress` (when none exist) -> Verify "No tasks found" message.
+- [x] **Filter Success:** `list done` -> Verify ONLY 'done' tasks are printed.
+- [x] **Filter Success:** `list in-progress` -> Verify ONLY 'in-progress' tasks are printed.
+- [x] **Filter Success:** `list not-done` -> Verify ONLY 'not-done' tasks are printed.
+- [x] **Filter Empty:** `list in-progress` (when none exist) -> Verify "No tasks found" message.
 
 #### **5. Help Page**
 

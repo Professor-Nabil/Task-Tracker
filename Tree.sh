@@ -8,7 +8,11 @@
 
 ./tests/e2e/add-command/add-task.test.js
 ./tests/e2e/add-command/add-task-failure.test.js
-./tests/e2e/list-command/list-task.test.js
+./tests/e2e/list-command/list-task-success.test.js
+./tests/e2e/list-command/list-task-failure.test.js
+./tests/e2e/list-command/list-task-filter-success.test.js
+./tests/e2e/list-command/list-task-filter-failure.test.js
+
 ./tests/e2e/update-command/update-task-success.test.js
 ./tests/e2e/update-command/update-task-failure-id.test.js
 ./tests/e2e/update-command/update-task-failure-desc.test.js
