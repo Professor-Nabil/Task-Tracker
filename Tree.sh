@@ -8,6 +8,7 @@
 
 ./tests/e2e/add-command/add-task.test.js
 ./tests/e2e/add-command/add-task-failure.test.js
+
 ./tests/e2e/list-command/list-task-success.test.js
 ./tests/e2e/list-command/list-task-failure.test.js
 ./tests/e2e/list-command/list-task-filter-success.test.js
@@ -16,10 +17,14 @@
 ./tests/e2e/update-command/update-task-success.test.js
 ./tests/e2e/update-command/update-task-failure-id.test.js
 ./tests/e2e/update-command/update-task-failure-desc.test.js
+
 ./tests/e2e/delete-command/delete-task-success.test.js
 ./tests/e2e/delete-command/delete-task-failure-id.test.js
+
 ./tests/e2e/mark-command/mark-status-success.test.js
 ./tests/e2e/mark-command/mark-status-failure.test.js
+
+./tests/e2e/unknown-commands/unknown-commands-and-help-page.test.js
 
 # =============================================================
 # Middleware
