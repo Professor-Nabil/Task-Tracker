@@ -12,13 +12,14 @@ We will test the "Human-App Interface" for every command you have:
 #### **2. Delete Command**
 
 - [x] **Success:** `delete 1` -> Check if terminal confirms deletion.
-- [ ] **Failure:** `delete 999` -> Check if it prints "Task not found" (Fail Operation View).
+- [x] **Failure:** `delete 999` -> Check if it prints "Task not found" (Fail Operation View).
 
 #### **3. Mark Command (The "Status" Test)**
 
-- [ ] **Success (done):** `mark 1 done` -> Verify status update in terminal.
-- [ ] **Success (in-progress):** `mark 1 in-progress`.
-- [ ] **Failure (Invalid Status):** `mark 1 pizza` -> Verify `validateStatus` middleware catch.
+- [x] **Success (done):** `mark 1 done` -> Verify status update in terminal.
+- [x] **Success (in-progress):** `mark 1 in-progress`.
+- [x] **Success (not-done):** `mark 1 not-done`.
+- [x] **Failure (Invalid Status):** `mark 1 pizza` -> Verify `validateStatus` middleware catch.
 
 #### **4. List Command (Filtering)**
 

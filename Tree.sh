@@ -14,6 +14,8 @@
 ./tests/e2e/update-command/update-task-failure-desc.test.js
 ./tests/e2e/delete-command/delete-task-success.test.js
 ./tests/e2e/delete-command/delete-task-failure-id.test.js
+./tests/e2e/mark-command/mark-status-success.test.js
+./tests/e2e/mark-command/mark-status-failure.test.js
 
 # =============================================================
 # Middleware
