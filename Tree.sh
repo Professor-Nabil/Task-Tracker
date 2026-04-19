@@ -57,6 +57,7 @@
 ./src/repository/db-config.js
 ./src/repository/read.js
 ./src/repository/write.js
+./src/repository/task-repository.js
 ./data/tasks.json
 
 # =============================================================

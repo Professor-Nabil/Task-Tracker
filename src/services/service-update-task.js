@@ -1,15 +1,9 @@
-import { read } from "../repository/read.js";
-import { write } from "../repository/write.js";
+import { taskRepository } from "../repository/task-repository.js";
 import { updateTaskInArray } from "../utils/services/update-task-in-array.js";
-// 1. Import the dynamic names
-import { DATA_FOLDER, DB_FILE } from "../repository/db-config.js";
-
-// const path = "data";
-// const file = "tasks.json";
 
 export const serviceUpdateTask = async (id, newDescription) => {
   try {
-    const tasks = (await read(DATA_FOLDER, DB_FILE)) || [];
+    const tasks = await taskRepository.findAll();
 
     const updatedTask = updateTaskInArray(tasks, {
       id: Number(id),
@@ -17,7 +11,7 @@ export const serviceUpdateTask = async (id, newDescription) => {
       updatedAt: new Date().toISOString(),
     });
 
-    await write(DATA_FOLDER, DB_FILE, tasks);
+    await taskRepository.saveAll(tasks);
 
     return updatedTask;
   } catch (error) {
